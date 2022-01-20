@@ -1,0 +1,6 @@
+<div class="mainBox">
+  <button [routerLink]="['/display']">Get all books</button><br /><br />
+  <input [(ngModel)]="searchParam" placeholder="Search books by title" />
+  <button *ngIf="searchParam" (click)="search()">Search</button><br /><br />
+  <button [routerLink]="['/add']">Add a new book</button>
+</div>

@@ -1,0 +1,5 @@
+<div *ngIf="book" class="box">
+  Title<br /><input [(ngModel)]="book.title" /><br /><br />
+  Author<br /><input [(ngModel)]="book.author" /><br /><br />
+  <button (click)="send()">{{ state }}</button>
+</div>

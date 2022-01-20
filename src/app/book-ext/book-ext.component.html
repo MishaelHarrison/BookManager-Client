@@ -1,0 +1,7 @@
+<div *ngIf="book" class="book">
+  <div class="title">{{ book.title }}</div>
+  <div *ngIf="book.author" class="author">by: {{ book.author }}</div>
+  <br />
+  <button (click)="delete()">Delete</button><br />
+  <button (click)="update()">Update</button>
+</div>

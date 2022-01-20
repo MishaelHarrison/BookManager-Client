@@ -1,0 +1,6 @@
+<app-book-form
+  *ngIf="book"
+  (respond)="send($event)"
+  [state]="'Update'"
+  [book]="book"
+></app-book-form>

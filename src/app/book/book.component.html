@@ -1,0 +1,4 @@
+<div class="book" *ngIf="book" (click)="getInfo()">
+  <div class="title">{{ book.title }}</div>
+  <div *ngIf="book.author" class="author">by: {{ book.author }}</div>
+</div>
