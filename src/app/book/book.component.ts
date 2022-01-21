@@ -8,7 +8,7 @@ import { Book } from '../Book';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit {
-  @Input() public book?: Book;
+  @Input() book?: Book;
 
   constructor(private router: Router) {}
 

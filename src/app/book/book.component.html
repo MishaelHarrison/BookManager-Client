@@ -1,4 +1,4 @@
-<div class="book" *ngIf="book" (click)="getInfo()">
-  <div class="title">{{ book.title }}</div>
-  <div *ngIf="book.author" class="author">by: {{ book.author }}</div>
-</div>
+<mat-card *ngIf="book" (click)="getInfo()">
+  <mat-card-title *ngIf="book">{{ book.title }}</mat-card-title>
+  <mat-card-subtitle *ngIf="book">by: {{ book.author }}</mat-card-subtitle>
+</mat-card>

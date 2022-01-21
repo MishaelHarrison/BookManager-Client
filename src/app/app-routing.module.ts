@@ -5,6 +5,7 @@ import { AddBookComponent } from './routes/add-book/add-book.component';
 import { GetAllComponent } from './routes/get-all/get-all.component';
 import { MainPageComponent } from './routes/main-page/main-page.component';
 import { SearchComponent } from './routes/search/search.component';
+import { ShelfComponent } from './routes/shelf/shelf.component';
 import { UpdateBookComponent } from './routes/update-book/update-book.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'querry', component: SearchComponent },
   { path: 'add', component: AddBookComponent },
   { path: 'update', component: UpdateBookComponent },
+  { path: 'shelf', component: ShelfComponent },
 ];
 
 @NgModule({

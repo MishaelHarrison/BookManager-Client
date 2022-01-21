@@ -1,5 +1,11 @@
-<div *ngIf="book" class="box">
-  Title<br /><input [(ngModel)]="book.title" /><br /><br />
-  Author<br /><input [(ngModel)]="book.author" /><br /><br />
-  <button (click)="send()">{{ state }}</button>
-</div>
+<mat-card *ngIf="book">
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="book.title" /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline">
+    <mat-label>Author</mat-label>
+    <input matInput [(ngModel)]="book.author" /> </mat-form-field
+  ><br />
+  <button mat-raised-button color="accent" (click)="send()">{{ state }}</button>
+</mat-card>

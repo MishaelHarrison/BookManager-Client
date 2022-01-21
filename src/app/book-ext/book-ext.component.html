@@ -1,7 +1,13 @@
-<div *ngIf="book" class="book">
-  <div class="title">{{ book.title }}</div>
-  <div *ngIf="book.author" class="author">by: {{ book.author }}</div>
-  <br />
-  <button (click)="delete()">Delete</button><br />
-  <button (click)="update()">Update</button>
-</div>
+<mat-card *ngIf="book">
+  <mat-card-title class="title">{{ book.title }}</mat-card-title>
+  <mat-card-subtitle *ngIf="book.author"
+    >by: {{ book.author }}</mat-card-subtitle
+  >
+  <button mat-raised-button color="warn" (click)="delete()">Delete</button
+  >&nbsp;
+  <button mat-raised-button color="accent" (click)="update()">Update</button
+  >&nbsp;
+  <button mat-raised-button color="primary" (click)="addToShelf()">
+    Add to shelf
+  </button>
+</mat-card>

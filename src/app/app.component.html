@@ -1,2 +1,6 @@
-<button *ngIf="router.url != '/'" [routerLink]="['']">Main menu</button>
+<div *ngIf="router.url != '/'">
+  &nbsp;<button mat-raised-button color="accent" [routerLink]="['']">
+    Main menu</button
+  ><br /><br />
+</div>
 <router-outlet></router-outlet>

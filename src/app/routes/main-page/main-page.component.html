@@ -1,6 +1,24 @@
-<div class="mainBox">
-  <button [routerLink]="['/display']">Get all books</button><br /><br />
-  <input [(ngModel)]="searchParam" placeholder="Search books by title" />
-  <button *ngIf="searchParam" (click)="search()">Search</button><br /><br />
-  <button [routerLink]="['/add']">Add a new book</button>
-</div>
+<mat-card style="text-align: center">
+  <button mat-raised-button color="primary" [routerLink]="['/display']">
+    Get all books
+  </button>
+  <br /><br />
+  <button mat-raised-button color="primary" [routerLink]="['/add']">
+    Add a new book</button
+  ><br /><br />
+  <button mat-raised-button color="primary" [routerLink]="['/shelf']">
+    View bookshelf</button
+  ><br /><br />
+  <mat-form-field appearance="outline">
+    <mat-label>Search for title</mat-label>
+    <input matInput [(ngModel)]="searchParam" /> </mat-form-field
+  >&nbsp;
+  <button
+    mat-raised-button
+    [color]="searchParam ? 'primary' : 'disabled'"
+    [disabled]="!searchParam"
+    (click)="search()"
+  >
+    Search
+  </button>
+</mat-card>

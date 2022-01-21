@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
 import { Book } from '../Book';
 import { ServerService } from '../server.service';
+import { AddBook } from '../actions/book.actions';
 
 @Component({
   selector: 'app-book-ext',
@@ -14,7 +17,8 @@ export class BookExtComponent implements OnInit {
   constructor(
     private service: ServerService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +35,9 @@ export class BookExtComponent implements OnInit {
 
   update() {
     this.router.navigate(['update'], { queryParams: { id: this.book?.id } });
+  }
+
+  addToShelf() {
+    this.store.dispatch(AddBook({ payload: this.book! }));
   }
 }
