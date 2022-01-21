@@ -14,12 +14,20 @@ export class ShelfComponent implements OnInit {
   books: Observable<Book[]>;
 
   constructor(private store: Store<AppState>) {
-    this.books = this.store.select('book');
+    this.books = new Observable<Book[]>((o) => {
+      this.store.select('book').subscribe((x) => {
+        let list = [...x];
+        list.sort((first, second) =>
+          first.title.localeCompare(second.title.valueOf())
+        );
+        o.next(list);
+      });
+    });
   }
 
   ngOnInit(): void {}
 
-  delete(i: number) {
-    this.store.dispatch(RemoveBook({ payload: i }));
+  delete(title: string) {
+    this.store.dispatch(RemoveBook({ payload: title }));
   }
 }

@@ -10,10 +10,8 @@ const reducer = createReducer(
     return state;
   }),
   on(BookActions.RemoveBook, (state, action) => {
-    return [
-      ...state.slice(0, action.payload),
-      ...state.slice(action.payload + 1),
-    ];
+    let i = state.findIndex((x) => x.title.valueOf() === action.payload);
+    return [...state.slice(0, i), ...state.slice(i + 1)];
   })
 );
 

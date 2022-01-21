@@ -1,7 +1,9 @@
 <div class="books">
-  <mat-card *ngFor="let book of books | async; let i = index">
+  <mat-card *ngFor="let book of books | async">
     <mat-card-title *ngIf="book">{{ book.title }}</mat-card-title>
     <mat-card-subtitle *ngIf="book">by: {{ book.author }}</mat-card-subtitle
-    ><button mat-button color="warn" (click)="delete(i)">Remove</button>
+    ><button mat-button color="warn" (click)="delete(book.title.valueOf())">
+      Remove
+    </button>
   </mat-card>
 </div>

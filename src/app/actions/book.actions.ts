@@ -5,5 +5,5 @@ import { Book } from '../Book';
 export const AddBook = createAction('[BOOK] Add', props<{ payload: Book }>());
 export const RemoveBook = createAction(
   '[BOOK] Remove',
-  props<{ payload: number }>()
+  props<{ payload: string }>()
 );

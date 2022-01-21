@@ -13,13 +13,13 @@ export class ServerService {
   constructor(private http: HttpClient) {}
 
   getAllBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.api);
+    return this.sortBooks(this.http.get<Book[]>(this.api));
   }
   getBook(id: number) {
     return this.http.get<Book>(this.api + `/${id}`);
   }
   querryBooks(param: string): Observable<Book[]> {
-    return this.http.get<Book[]>(this.api + `/${param}`);
+    return this.sortBooks(this.http.get<Book[]>(this.api + `/${param}`));
   }
   deleteBook(id: number): Observable<void> {
     return this.http.delete<void>(this.api + `/${id}`);
@@ -29,5 +29,16 @@ export class ServerService {
   }
   updateBook(book: Book): Observable<void> {
     return this.http.put<void>(this.api, book);
+  }
+
+  private sortBooks(req: Observable<Book[]>): Observable<Book[]> {
+    return new Observable<Book[]>((o) => {
+      req.subscribe((x) => {
+        x.sort((first, second) =>
+          first.title.localeCompare(second.title.valueOf())
+        );
+        o.next(x);
+      });
+    });
   }
 }
